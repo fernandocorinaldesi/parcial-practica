@@ -19,31 +19,32 @@ export default class App extends Component {
         }
       );
       const datos = await response.json();
-
+    
       const ids = datos
         .map((e) => e.userId)
         .filter((e, index, array) => array.indexOf(e) === index);
 
-       this.setState({ ids: ids, datos: datos,datosFiltrados:datos });
+       this.setState({ ids: ids, datos: datos,datosfiltrados:datos });
     } catch (err) {
       alert("Se produjo el siguiente error: " + err);
       this.setState({ ids: [], datos: [], datosfiltrados: [] });
     }
   }
   eventCombo = (e) => {
+     let valor=parseInt(e.target.value);
      if (e.target.value === "0") {
+       alert("hola")
       this.setState({ datosfiltrados: this.state.datos });
     } else {
-      const datosFiltrados = this.state.datos
-      .filter((u) => u.userId === e.target.value);
-
-      this.setState({ datos: datosFiltrados });
+      const datosfiltrados = this.state.datos
+      .filter((u) => u.userId === valor);
+      console.log(datosfiltrados)
+      this.setState({ datosfiltrados: datosfiltrados });
     }
-    
-  };
+   };
 
   render() {
-    const { ids,datos} = this.state;
+    const { ids,datosfiltrados} = this.state;
 
     return (
       <div className="App">
@@ -51,7 +52,7 @@ export default class App extends Component {
           <ComboBox  datos={ids}
             titulo="Seleccione una id.."
             handerCombo={this.eventCombo}/>
-           <TableModel data={datos} titulo="EJERCICIO PARCIAL 1" />
+           <TableModel data={datosfiltrados} titulo="EJERCICIO PARCIAL 1" />
        
       </div>
     );

@@ -7,7 +7,7 @@ export default function comboRegiones(props)
     <div>
          <select onChange={handerCombo}>
           <option key={0} value={0}>{titulo}</option>
-          {datos.map((r,i)=>(<option value={r}>{r}</option>
+          {datos.map((r)=>(<option value={r}>{r}</option>
           ))}
         </select>
     </div>

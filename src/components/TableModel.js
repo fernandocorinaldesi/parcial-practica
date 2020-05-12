@@ -6,7 +6,7 @@ export default function TableModel(props) {
 
   const datos = data.map((p) => {
     return (
-      <tr key={p.userId}>
+      <tr key={p.id}>
         <td>{p.userId}</td>
         <td>{p.id}</td>
         <td>{p.title}</td>
