@@ -8,7 +8,7 @@ export default class App extends Component {
   state = {
     ids: [],
     datos: [],
-    datosfiltrados: []
+    datosfiltrados: [],
   };
   async componentDidMount() {
     try {
